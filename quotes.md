@@ -1,0 +1,2 @@
+"Where it takes a pretty in-depth knowledge of a language like C or C++ to write a full-scale program, full-scale production JavaScript can, and often does, barely scratch the surface of what the language can do."
+YDKJS Up & Going v1 - K. Simpson
