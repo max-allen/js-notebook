@@ -1,15 +1,15 @@
 ```javascript
-function getCars() {}
+function getCars() {};
 
 // Get another car is a function expression
 
 var nextCar = function getAnotherCar() {
-  console.log(getAnotherCar)
-}
+  console.log(getAnotherCar);
+};
 
-getCars
-nextCar
-getAnotherCar
+getCars;
+nextCar;
+getAnotherCar; // reference error
 ```
 
 - the source reference to `getAnotherCar` within itself is fine, because its identifier has
@@ -18,6 +18,27 @@ getAnotherCar
 
 **function declarations** add their identifier to the enclosing scope, while **function expressions** create
 a new scope, and add their identifier to it; this identifier is read-only.
+
+**Identifying function declarations**
+
+
+if the `function` keyword isn't first thing in the statement, it's a function expression, not a function declaration.
+
+```javascript
+function logName(name) { // formal declaration
+  console.log('NAME', name)
+};
+
+var getFirstBook; // formal declaration
+
+logName('Tom');
+
+getFirstBook([1, 2, 3]);
+
+getFirstBook = function (books) {
+  return books[0]
+}
+```
 
 ```javascript
   const pressHandler = function() {}
@@ -28,6 +49,7 @@ a new scope, and add their identifier to it; this identifier is read-only.
   function expression**.
   - named function expressions allow self-reference
   - names for function expressions appear in stack traces
+  - named function expressions are self-documenting
 
 ```javascript
 const ids = people.map(person => person.id)

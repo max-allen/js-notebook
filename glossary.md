@@ -23,4 +23,8 @@ const noResults = shipments && !shipments.length
 
 **Undefined indentifiers** have been formally declared and a location in memory, but no associated value.
 
-**Lexical scope** is the name for the type of scope javascript determines at compile time. The name lexical refers to the lexing stage of compilation.
+**Lexical scope** is the name for the type of scope javascript determines at compile time. The name _lexical_ refers to the lexing stage of compilation. Scopes are fixed at authortime and are not affected by runtime conditions.
+
+**Hoisting** is a term used to describe the behavior of execution contexts in JavaScript. It suggests variable and function declarations are moved to the top of your code. This isn't what actually happens though – declarations are put into memory during the compile phase.
+
+**Closure** describes the ability of a function to remember and access its lexical scope despite being executed in a different scope.
