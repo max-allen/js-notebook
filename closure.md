@@ -41,3 +41,37 @@ Closure doesn't preserve a snapshot of the variable, but the actual variable its
 
   logFoo(); // 2
 ```
+
+```js
+  for (var i = 1; i <= 3; i++) {
+    setTimeout(function() {
+      console.log(`i ${i}`);
+    }, i * 1000);
+  }
+  // i: 4
+  // i: 4
+  // i: 4
+```
+
+```js
+  for (var i = 1; i <= 3; i++) {
+    let j = i;
+    setTimeout(function() {
+      console.log(`i ${i}`);
+    }, i * 1000);
+  }
+  // i: 1
+  // i: 2
+  // i: 3
+```
+
+```js
+  for (let i = 1; i <= 3; i++) { // treated as a new declaration of i for each iteration
+    setTimeout(function() {
+      console.log(`i ${i}`);
+    }, i * 1000);
+  }
+  // i: 1
+  // i: 2
+  // i: 3
+```
