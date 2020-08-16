@@ -43,4 +43,14 @@ var dealership = DealershipModule('2009 Taurus');
 
 In the above, `DealershipModule` is a factory function, capable of creating many instances with their own states, and exposes the minimum api necessary for its purpose.
 
-The module pattern isn't an example of first class support for modules – it's a prevalant idiom that's emerged from tools provided by the language. 
+The module pattern isn't an example of first class support for modules – it's a prevalant idiom that's emerged from tools provided by the language.
+
+**Enter ES6**
+
+```js
+var manufacturer = 'ford';
+
+export default function sell(car) {
+  console.log(`Would you like this ${car} by ${manufacturer}?`)
+}
+```
