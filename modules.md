@@ -1,3 +1,7 @@
+
+Not sure of it's exact origin. I've found a source that says Doug Crockford in 2001, and another that says it was developed by a number of people including
+[Richard Cornford](https://groups.google.com/g/comp.lang.javascript/c/eTzWVa1W_pE/m/N9lnvRG9WJ8J) in 2003.
+
 The simplest way of organizing your data and behavior into a single unit:
 
 ```js
@@ -47,6 +51,9 @@ The module pattern isn't an example of first class support for modules – it's 
 
 **Enter ES6**
 
+ES6 modules provide first class support for modules. TC39 and Node.js didn't coordinate their respective specs
+well. As a result, ES6 modules had support in browers long before their server-side counterpart (approx. 5 years).
+
 ```js
 var manufacturer = 'ford';
 
@@ -54,3 +61,11 @@ export default function sell(car) {
   console.log(`Would you like this ${car} by ${manufacturer}?`)
 }
 ```
+These modules are file-based, so it's _impossible_ to have more than one ES6 module in the same file. Without a build
+process, if you wanted to ship each of these to the browser, the browser would need to load each file. Modern JS apps
+are composed of _thousands_ of modules. People work around this with build tools like Webpack that'll compile their
+ES6-authored modules to the old syntax.
+
+These modules are also *singletons* (see IIFE example): they're only invoked once, and each subsequent import is a
+reference to that instance. If you wanted to support creating multiple instances of your module, your API would need
+to expose a factory function for this.
